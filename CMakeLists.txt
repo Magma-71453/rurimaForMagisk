@@ -45,10 +45,6 @@ set(RURIMA_CORE_SOURCES
     src/ruri/src/easteregg/typewriter.c
 )
 
-include_directories(src/include)
-include_directories(src)
-include_directories(src/ruri/src)
-
 add_executable(rurima ${RURIMA_CORE_SOURCES})
 
 # find del libcap
