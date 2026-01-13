@@ -1,0 +1,6 @@
+id=rurimaForMagisk
+name=RurimaForMagisk
+version=v1.0
+versionCode=1
+author=RuriOSS & Magma
+description=A web manager for Ruri containers (LXC/Docker).

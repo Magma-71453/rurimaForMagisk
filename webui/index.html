@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rurima Manager</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <div class="title-group">
+                <h1>Rurima Tool</h1>
+                <span class="badge">Magisk</span>
+            </div>
+            <!-- 新增添加按钮 -->
+            <button class="icon-btn" onclick="openAddModal()">+</button>
+        </header>
+
+        <main id="container-list">
+            <div class="loading">Loading containers...</div>
+        </main>
+
+        <!-- 配置模态框 -->
+        <div id="config-modal" class="modal hidden">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="modal-title">Config</h3>
+                    <button class="close-btn" onclick="closeModal('config-modal')">×</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Auto Start</label>
+                        <input type="checkbox" id="modal-autostart">
+                    </div>
+                    <div id="kv-list"></div>
+                    <button class="add-btn" onclick="addConfigRow()">+ Param</button>
+                </div>
+                <div class="modal-footer">
+                    <button class="save-btn" onclick="saveConfig()">Save Config</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 新增：手动添加容器模态框 -->
+        <div id="add-modal" class="modal hidden">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Add Container</h3>
+                    <button class="close-btn" onclick="closeModal('add-modal')">×</button>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group">
+                        <label>Name</label>
+                        <input type="text" id="add-name" placeholder="e.g. Ubuntu-Desktop">
+                    </div>
+                    <div class="input-group">
+                        <label>Path (Absolute)</label>
+                        <input type="text" id="add-path" placeholder="e.g. /data/local/my_rootfs">
+                    </div>
+                    <div class="input-group">
+                        <label>Type</label>
+                        <select id="add-type">
+                            <option value="lxc">LXC</option>
+                            <option value="docker">Docker</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="save-btn" onclick="submitAdd()">Add</button>
+                </div>
+            </div>
+        </div>
+
+        <nav class="bottom-tab">
+            <a href="#" class="active" data-action="home">主页</a>
+            <a href="#" data-action="settings">设置</a>
+        </nav>
+    </div>
+    <script src="static/main.js"></script>
+</body>
+</html>
